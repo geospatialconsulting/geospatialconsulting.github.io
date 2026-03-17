@@ -194,12 +194,12 @@
       width: 100%;
     }
     /* individual cloud positions */
-    .cloud-item:nth-child(1) { left: -1%;  top:   0px; width: 320px; }
+    .cloud-item:nth-child(1) { left: -3%;  top:   0px; width: 320px; }
     .cloud-item:nth-child(2) { left: 33%;  top:  75px; width: 360px; }
-    .cloud-item:nth-child(3) { right: -1%; top:  -5px; width: 340px; left: auto; }
-    .cloud-item:nth-child(4) { left: -1%;  top: 240px; width: 340px; }
+    .cloud-item:nth-child(3) { right: -3%; top:  -5px; width: 340px; left: auto; }
+    .cloud-item:nth-child(4) { left: -3%;  top: 240px; width: 340px; }
     .cloud-item:nth-child(5) { left: 35%;  top: 295px; width: 320px; }
-    .cloud-item:nth-child(6) { right: -1%; top: 215px; width: 330px; left: auto; }
+    .cloud-item:nth-child(6) { right: -3%; top: 215px; width: 330px; left: auto; }
     @media (max-width: 640px) {
       .cloud-services { height: auto; }
       .cloud-item { position: relative; left: auto !important; top: auto !important; width: 85% !important; margin: .5rem auto; }
@@ -249,7 +249,7 @@
     #contact {
       text-align: center;
       position: relative;
-      padding: 50px 2rem 60px;
+      padding: 50px 2rem 40px;
       background:
         linear-gradient(to bottom,
           #b8915a 0%,
@@ -674,35 +674,32 @@
     <path d="M0,418 Q200,410 400,416 Q600,422 800,415 Q1000,408 1200,414 Q1300,417 1400,412"
           fill="none" stroke="#3a2208" stroke-width="2" opacity=".4"/>
   </svg>
-  <div class="container">
+  <div class="container" style="position:relative;z-index:1;">
     <div class="section-label">Contact</div>
     <h2 style="margin-bottom:.5rem">Let's work together</h2>
-    <p style="color:var(--muted);margin-bottom:2.5rem;font-size:.95rem">
+    <p style="color:#c8a870;font-size:.95rem;margin:0;">
       Open to consulting engagements, research collaborations, and project-based work.
     </p>
-    <div style="display:flex;justify-content:center;">
-      <div class="contact-box">
-        <h3>Get in touch</h3>
-        <p>I'm available for new projects. Reach out via email or LinkedIn.</p>
-        <div class="contact-links">
-
-          <a href="mailto:michael_marszalek@web.de" class="contact-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-            michael_marszalek@web.de
-          </a>
-
-          <a href="https://www.linkedin.com/in/michael-marszalek/" target="_blank" rel="noopener" class="contact-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            linkedin.com/in/michael-marszalek
-          </a>
-
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <footer>
+  <div style="display:flex;justify-content:center;margin-bottom:2rem;">
+    <div class="contact-box">
+      <h3>Get in touch</h3>
+      <p>I'm available for new projects. Reach out via email or LinkedIn.</p>
+      <div class="contact-links">
+        <a href="mailto:michael_marszalek@web.de" class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          michael_marszalek@web.de
+        </a>
+        <a href="https://www.linkedin.com/in/michael-marszalek/" target="_blank" rel="noopener" class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/michael-marszalek
+        </a>
+      </div>
+    </div>
+  </div>
   <p>AI Ingenieurbüro Marszalek &mdash; Geospatial Data Science &amp; ML Consulting</p>
 </footer>
 
