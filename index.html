@@ -914,11 +914,15 @@
       status.style.color = '';
       status.textContent = 'Sending…';
 
-      fetch('https://formspree.io/f/xojkodbk', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-      })
+      fetch('https://api.ipify.org?format=json')
+        .then(r => r.json())
+        .then(d => d.ip)
+        .catch(() => 'unknown')
+        .then(senderIp => fetch('https://formspree.io/f/xojkodbk', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name, email, message, _sender_ip: senderIp })
+        }))
         .then(r => r.json())
         .then(data => {
           if (data.ok) {
