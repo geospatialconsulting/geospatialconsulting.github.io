@@ -522,6 +522,15 @@
         opacity: .08;
         right: -20%;
       }
+
+      .hero-inner {
+        transform: none;
+        padding: 0 1.2rem;
+      }
+
+      .space-bg {
+        opacity: .35;
+      }
     }
   </style>
 </head>
@@ -889,9 +898,15 @@
       const status = document.getElementById('form-status');
       const btn = form.querySelector('button[type="submit"]');
 
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
       if (!name || !email || !message) {
         status.style.color = '#e05050';
         status.textContent = 'Please fill in all fields.';
+        return;
+      }
+      if (!emailOk) {
+        status.style.color = '#e05050';
+        status.textContent = 'Please enter a valid email address.';
         return;
       }
 
