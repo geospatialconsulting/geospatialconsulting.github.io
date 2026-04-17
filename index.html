@@ -532,6 +532,90 @@
         opacity: .35;
       }
     }
+
+    /* ── Impressum Modal ─────────────────────────────────────────── */
+    .imp-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 13, 26, .88);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+
+    .imp-overlay.open {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .imp-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      max-width: 580px;
+      width: 100%;
+      padding: 2.5rem 2.5rem 2rem;
+      position: relative;
+      margin: auto;
+    }
+
+    .imp-box h2 {
+      font-size: 1.25rem;
+      color: var(--teal);
+      margin-bottom: 1.6rem;
+    }
+
+    .imp-box h3 {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--muted);
+      margin: 1.4rem 0 .35rem;
+    }
+
+    .imp-box p {
+      font-size: .92rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .imp-box a {
+      color: var(--teal);
+    }
+
+    .imp-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.1rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .imp-close:hover {
+      color: var(--text);
+    }
+
+    .imp-link {
+      font-size: .78rem;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline dotted;
+      display: block;
+      margin: .45rem auto 0;
+    }
+
+    .imp-link:hover {
+      color: var(--text);
+    }
   </style>
 </head>
 
@@ -840,28 +924,22 @@
       <h2>Get in Touch</h2>
       <p class="section-intro">Open to consulting engagements, research collaborations, and project-based work.</p>
 
-      <div class="contact-layout">
+      <div class="contact-layout" style="display:flex;flex-direction:column;gap:1rem;align-items:center;text-align:center;">
         <a href="https://www.linkedin.com/in/michael-marszalek/" target="_blank" rel="noopener"
-          style="display:inline-flex;align-items:center;gap:.5rem;color:#0a66c2;font-weight:600;font-size:.9rem;text-decoration:none;margin-bottom:1.6rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#0a66c2"
-            aria-hidden="true">
-            <path
-              d="M20.447 20.452H17.01v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.585V9h3.297v1.561h.046c.459-.869 1.582-1.785 3.255-1.785 3.483 0 4.126 2.292 4.126 5.271v6.405zM5.337 7.433a1.91 1.91 0 1 1 0-3.82 1.91 1.91 0 0 1 0 3.82zm1.648 13.019H3.689V9h3.296v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+          style="display:inline-flex;align-items:center;gap:.5rem;color:#0a66c2;font-weight:600;font-size:.9rem;text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true">
+            <path d="M20.447 20.452H17.01v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.585V9h3.297v1.561h.046c.459-.869 1.582-1.785 3.255-1.785 3.483 0 4.126 2.292 4.126 5.271v6.405zM5.337 7.433a1.91 1.91 0 1 1 0-3.82 1.91 1.91 0 0 1 0 3.82zm1.648 13.019H3.689V9h3.296v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
           </svg>
           Connect on LinkedIn
         </a>
-
-        <form id="contact-form" class="contact-form" novalidate>
-          <div class="form-row">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-          </div>
-          <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
-          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
-            <button type="submit" class="btn">Send Message</button>
-            <span id="form-status" class="form-status"></span>
-          </div>
-        </form>
+        <a href="mailto:michael_marsalek@web.de" class="btn" style="display:inline-flex;align-items:center;gap:.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          Email
+        </a>
       </div>
     </div>
 
@@ -870,6 +948,8 @@
 
   <footer>
     <p>AI Ingenieurbüro &mdash; Geospatial Data Science &amp; ML Consulting</p>
+    <button class="imp-link" id="imp-open">Legal Notice</button>
+    <button class="imp-link" id="dse-open">Privacy Policy</button>
     <svg viewBox="0 190 1400 170" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true">
       <defs>
@@ -888,58 +968,6 @@
     </svg>
   </footer>
 
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = this;
-      const name = form.querySelector('[name="name"]').value.trim();
-      const email = form.querySelector('[name="email"]').value.trim();
-      const message = form.querySelector('[name="message"]').value.trim();
-      const status = document.getElementById('form-status');
-      const btn = form.querySelector('button[type="submit"]');
-
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-      if (!name || !email || !message) {
-        status.style.color = '#e05050';
-        status.textContent = 'Please fill in all fields.';
-        return;
-      }
-      if (!emailOk) {
-        status.style.color = '#e05050';
-        status.textContent = 'Please enter a valid email address.';
-        return;
-      }
-
-      btn.disabled = true;
-      status.style.color = '';
-      status.textContent = 'Sending…';
-
-      fetch('https://api.ipify.org?format=json')
-        .then(r => r.json())
-        .then(d => d.ip)
-        .catch(() => 'unknown')
-        .then(senderIp => fetch('https://formspree.io/f/xojkodbk', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ name, email, message, _sender_ip: senderIp })
-        }))
-        .then(r => r.json())
-        .then(data => {
-          if (data.ok) {
-            status.textContent = 'Message sent — I\'ll be in touch soon!';
-            form.reset();
-          } else {
-            status.style.color = '#e05050';
-            status.textContent = data.error || 'Something went wrong. Please try again.';
-          }
-        })
-        .catch(() => {
-          status.style.color = '#e05050';
-          status.textContent = 'Network error. Please try again.';
-        })
-        .finally(() => { btn.disabled = false; });
-    });
-  </script>
 
   <script>
     // ── CONFIG ──────────────────────────────────────────────────────────────
@@ -1015,6 +1043,101 @@
       }
 
       requestAnimationFrame(tick);
+    })();
+  </script>
+
+  <!-- IMPRESSUM MODAL -->
+  <div class="imp-overlay" id="imp-overlay" role="dialog" aria-modal="true" aria-label="Legal Notice">
+    <div class="imp-box">
+      <button class="imp-close" id="imp-close" aria-label="Close">&times;</button>
+      <h2>Legal Notice</h2>
+
+      <h3>Information pursuant to § 5 DDG</h3>
+      <p>
+        AI Ingenieurbüro<br>
+        Dr.-Ing. Michael Marszalek<br>
+        c/o MDC#geospatial<br>
+        Welserstraße 3<br>
+        87463 Dietmannsried, Germany
+      </p>
+
+      <h3>Contact</h3>
+      <p>
+        E-Mail: <a href="mailto:michael_marsalek@web.de">michael_marsalek@web.de</a>
+      </p>
+
+      <h3>VAT</h3>
+      <p>In accordance with § 19 UStG (German VAT Act), no VAT is charged.</p>
+
+      <h3>Responsible for content pursuant to § 18 (2) MStV</h3>
+      <p>Dr.-Ing. Michael Marszalek</p>
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY MODAL -->
+  <div class="imp-overlay" id="dse-overlay" role="dialog" aria-modal="true" aria-label="Privacy Policy">
+    <div class="imp-box">
+      <button class="imp-close" id="dse-close" aria-label="Close">&times;</button>
+      <h2>Privacy Policy</h2>
+
+      <h3>1. Controller</h3>
+      <p>
+        Dr.-Ing. Michael Marszalek<br>
+        c/o MDC#geospatial, Welserstraße 3, 87463 Dietmannsried, Germany<br>
+        E-Mail: <a href="mailto:michael_marsalek@web.de">michael_marsalek@web.de</a>
+      </p>
+
+      <h3>2. Data collected</h3>
+      <p>This website uses no cookies and no tracking tools. No personal data is collected or stored by this website.</p>
+
+      <h3>3. Contact via email</h3>
+      <p>When you contact us by email, your message and email address are processed solely for the purpose of responding to your enquiry. No data is shared with third parties. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in responding to enquiries).</p>
+
+      <h3>4. Hosting</h3>
+      <p>This website is hosted via GitHub Pages (GitHub, Inc., USA). When accessing the site, GitHub may log technical access data including your IP address. For more information: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
+
+      <h3>5. Your rights</h3>
+      <p>This website does not collect or store personal data. If you have any privacy-related questions, contact us at <a href="mailto:michael_marsalek@web.de">michael_marsalek@web.de</a>. You may also lodge a complaint with the competent supervisory authority.</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var overlay = document.getElementById('imp-overlay');
+      document.getElementById('imp-open').addEventListener('click', function () {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+      document.getElementById('imp-close').addEventListener('click', close);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) close();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
+      });
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    })();
+
+    (function () {
+      var dseOverlay = document.getElementById('dse-overlay');
+      document.getElementById('dse-open').addEventListener('click', function () {
+        dseOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+      document.getElementById('dse-close').addEventListener('click', closeDse);
+      dseOverlay.addEventListener('click', function (e) {
+        if (e.target === dseOverlay) closeDse();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeDse();
+      });
+      function closeDse() {
+        dseOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     })();
   </script>
 
